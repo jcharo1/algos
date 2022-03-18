@@ -1,6 +1,6 @@
 # Examples of iteration with for loops.
 
-# my_list = [0, 1, 2, 3, 4, 5]
+# my_list = [0, 1, 2, 3, 4, 5] d
 
 # # Print each value in my_list. Note you can use the "in" keyword to iterate over a list.
 # for item in my_list:
