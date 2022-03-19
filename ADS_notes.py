@@ -6,7 +6,7 @@
 # for item in my_list:
 #     print('The value of item is: ' + str(item))
 
-# # Print each index and value pair.
+# # # Print each index and value pair.
 # for i, value in enumerate(my_list):
 #     print('The index value is: ' + str(i) + '. The value at i is: ' + str(value))
 
