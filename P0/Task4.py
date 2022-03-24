@@ -24,4 +24,21 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
+def list_of_telemarketers(calls):
+    telemarketer_nums = []
+    for x in calls:
+        if x[0].startswith("140"):
+            telemarketer_nums.append(x[0])
+    return telemarketer_nums
 
+
+def ordered_no_dup_list(unordered_list):
+  print("These numbers could be telemarketers: ")
+  se = set(unordered_list)
+  sorted_unique_numbers =sorted(se)
+  for x in sorted_unique_numbers:
+    print (x)
+
+
+xx = list_of_telemarketers(calls)
+ordered_no_dup_list(xx)
