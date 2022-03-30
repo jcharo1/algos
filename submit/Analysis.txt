@@ -1,0 +1,30 @@
+"""Task0 Big O
+The runtime of this algorithm is constant which would be O(1)
+"""
+
+
+
+
+"""Task1 Big O
+The runtime of total_unique_numbers function() is O(n) or linear.
+"""
+  
+
+
+
+  """Task2 Big O
+The runtime of findMaximum() is O(n) due to it only have one for loop. The run time for total_unique_numbers() is O(n) as well 
+
+
+
+"""
+  """Task3 Big O
+The runtime of area_codes_called_by_bangalore(), ordered_no_duplicate_list(), and percentage_of_calls is O(nlogn) .
+"""
+
+
+
+"""Task4 Big O
+The runtime of list_of_telemarketers() and ordered_no_duplicate_list() is is O(nlogn).
+"""
+  

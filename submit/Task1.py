@@ -42,8 +42,4 @@ def total_unique_numbers():
 total_unique_numbers()
 
 
-"""Big O
-The runtime of this algorithm is O(n) or linear, Worst case would be O((n+n)+2)
-"""
-  
   

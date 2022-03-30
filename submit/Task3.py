@@ -49,7 +49,7 @@ def area_codes_called_by_bangalore(calls):
               called_from_bangaloreList.append(x[1])
           if x[1].startswith(("7", '8', '9')):
 
-              called_from_bangaloreList.append(x[1][0:5])
+              called_from_bangaloreList.append(x[1][0:4])
           if x[1].startswith("140"):
               x[1] = "140"
               called_from_bangaloreList.append(x[1])
@@ -58,15 +58,15 @@ def area_codes_called_by_bangalore(calls):
   return called_from_bangaloreList
     
 
-def ordered_no_dup_list(unordered_list):
+def ordered_no_duplicate_list(unordered_list):
   print("The numbers called by people in Bangalore have codes:")
-  se = set(unordered_list)
-  sorted_unique_area_codes =sorted(se)
-  for x in sorted_unique_area_codes:
-    print (x)
+  new_set = set(unordered_list)
+  sorted_unique_area_codes =sorted(new_set)
+  for area_code in sorted_unique_area_codes:
+    print (area_code)
 
-# new_list = area_codes_called_by_bangalore(calls)
-# ordered_no_dup_list(new_list)
+area_codes_called_by_bangalore = area_codes_called_by_bangalore(calls)
+ordered_no_duplicate_list(area_codes_called_by_bangalore)
 
 
 
@@ -85,17 +85,17 @@ The percentage should have 2 decimal digits
 
 
 def percentage_of_calls(calls):
-  calls_in_banglore  = []
+  total_calls_in_banglore  = []
 
-  calls_in_banglore2  = []
+  calls_in_banglore  = []
   for x in calls:
       if x[0].startswith('(080)'):
-        calls_in_banglore2.append(x[1])
+        calls_in_banglore.append(x[1])
         if x[1].startswith('(080)'):
-          calls_in_banglore.append(x[1])
+          total_calls_in_banglore.append(x[1])
   
 
-  percentage = len(calls_in_banglore) / len(calls_in_banglore2) * 100
+  percentage = len(total_calls_in_banglore) / len(calls_in_banglore) * 100
   format_percentage = "{:.2f}".format(percentage)
   return print(f"{format_percentage} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
   

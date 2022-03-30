@@ -26,7 +26,7 @@ def findMaximum(call_duration_dict):
             max = value
             max_key = key
     return print(f"{max_key} spent the longest time, {max} seconds, on the phone during September 2016.")
-
+ 
 def total_unique_numbers(find_unique_calls):
     unique_phone_numbers={}
     for call in find_unique_calls:
