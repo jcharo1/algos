@@ -125,18 +125,22 @@ Return  [1, 0, 0, 0]
 '''
 
 just_list=[1,2,3]
-
+just_list1 = [9,9,9]
 
 def add_juan(arr):
     borrow = 1 
 
     for i in range(len(arr),0,-1):
-        print(i)
+        # the first iteration of i is 3 due to the len(arr) being 3 and specified in the  parameters in range()  
+        # print(f"i is = to {i}")
+        # arr[i-1] ---- since we want to access the last element in the list i is currently equal to 3, we need to minus 1 since indexes start from 0 
+        # arr[3-1] = arr[2] = 
         digit = borrow +arr[i-1]
-        print(digit)
+        print(f"i is = to {i} and the current digit plus 1 is {digit}")
         
         
         borrow = digit//10 
+        # // is floor division operator that rounds down , since 0-9 // 10 will alwats result in 0 and if it is over 10 it will result in 1 
         
         
         print(borrow)
@@ -149,10 +153,22 @@ def add_juan(arr):
             break
         else:
             arr[i-1] = digit % 10
+        print(arr)
     arr = [borrow] + arr
+    print(arr)
     position = 0
     while arr[position]==0:
         position += 1
     return arr[position:]
 
-add_juan(just_list)
+# add_juan(just_list1)''
+def add_juanito(arr):
+    string_ints = [str(int) for int in arr]
+    arr = ",".join(string_ints)
+    arr = arr.replace(",","")
+    arr = 1+int(arr)
+    # print(arr)
+# print(add_juanito(just_list))
+
+
+
