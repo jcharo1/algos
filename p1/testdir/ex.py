@@ -15,3 +15,7 @@ print ("./ex.py".endswith(".py"))
 
 print(os.getcwd())
 print(os.path.join)
+
+
+
+
