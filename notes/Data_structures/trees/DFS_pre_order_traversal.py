@@ -87,85 +87,106 @@ tree.get_root().set_right_child(Node("cherry"))
 tree.get_root().get_left_child().set_left_child(Node("dates"))
 
 # Let's define a stack to help keep track of the tree nodes
-class Stack():
-    def __init__(self):
-        self.list = list()
+# class Stack():
+#     def __init__(self):
+#         self.list = list()
     
-    # add an element to the list
-    def push(self,value):
-        self.list.append(value)
+#     # add an element to the list
+#     def push(self,value):
+#         self.list.append(value)
         
-    # remove the last element from the list
-    def pop(self):
-        return self.list.pop()
+#     # remove the last element from the list
+#     def pop(self):
+#         return self.list.pop()
         
-    # get the value of the last element in the list
-    def top(self):
-        if len(self.list) > 0:
-            return self.list[-1]
-        else:
-            return None
+#     # get the value of the last element in the list
+#     def top(self):
+#         if len(self.list) > 0:
+#             return self.list[-1]
+#         else:
+#             return None
     
-    # check if the list empty
-    def is_empty(self):
-        return len(self.list) == 0
+#     # check if the list empty
+#     def is_empty(self):
+#         return len(self.list) == 0
     
-    # 
-    def __repr__(self):
-        if len(self.list) > 0:
-            s = "<top of stack>\n_________________\n"
-            s += "\n_________________\n".join([str(item) for item in self.list[::-1]])
-            s += "\n_________________\n<bottom of stack>"
-            return s
+#     # 
+#     def __repr__(self):
+#         if len(self.list) > 0:
+#             s = "<top of stack>\n_________________\n"
+#             s += "\n_________________\n".join([str(item) for item in self.list[::-1]])
+#             s += "\n_________________\n<bottom of stack>"
+#             return s
         
-        else:
-            return "<stack is empty>"
+#         else:
+#             return "<stack is empty>"
 
 
 
-def pre_order_with_stack(tree, debug_mode=False):
-    visit_order = list()
-    stack = Stack()
-    node = tree.get_root()
-    visit_order.append(node.get_value())
-    state = State(node)
-    stack.push(state)
-    count = 0
-    while(node):
-        if debug_mode:
-            print(f"""
-loop count: {count}
-current node: {node}
-stack:
-{stack}
-            """)
-        count +=1
-        if node.has_left_child() and not state.get_visited_left():
-            state.set_visited_left()
-            node = node.get_left_child()
-            visit_order.append(node.get_value())
-            state = State(node)
-            stack.push(state)
+# def pre_order_with_stack(tree, debug_mode=False):
+#     visit_order = list()
+#     stack = Stack()
+#     node = tree.get_root()
+#     visit_order.append(node.get_value())
+#     state = State(node)
+#     stack.push(state)
+#     count = 0
+#     while(node):
+#         if debug_mode:
+#             print(f"""
+# loop count: {count}
+# current node: {node}
+# stack:
+# {stack}
+#             """)
+#         count +=1
+#         if node.has_left_child() and not state.get_visited_left():
+#             state.set_visited_left()
+#             node = node.get_left_child()
+#             visit_order.append(node.get_value())
+#             state = State(node)
+#             stack.push(state)
 
-        elif node.has_right_child() and not state.get_visited_right():
-            state.set_visited_right()
-            node = node.get_right_child()
-            visit_order.append(node.get_value())
-            state = State(node)
+#         elif node.has_right_child() and not state.get_visited_right():
+#             state.set_visited_right()
+#             node = node.get_right_child()
+#             visit_order.append(node.get_value())
+#             state = State(node)
 
-        else:
-            stack.pop()
-            if not stack.is_empty():
-                state = stack.top()
-                node = state.get_node()
-            else:
-                node = None
+#         else:
+#             stack.pop()
+#             if not stack.is_empty():
+#                 state = stack.top()
+#                 node = state.get_node()
+#             else:
+#                 node = None
             
-    if debug_mode:
-            print(f"""
-loop count: {count}
-current node: {node}
-stack:
-{stack}
-            """)
+#     if debug_mode:
+#             print(f"""
+# loop count: {count}
+# current node: {node}
+# stack:
+# {stack}
+#             """)
+#     return visit_order
+
+
+
+def pre_order(tree):
+    visit_order = []
+
+    root = tree.get_root()
+    traverse(root)
+
+    def traverse(node):
+        if node:
+
+            #visit 
+            visit_order.append(node.get_value())
+            #traverse left
+            traverse(node.get_left_child())
+            #traverse right
+            traverse(node.get_right_child())
+    
+    traverse(root)
     return visit_order
