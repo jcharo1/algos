@@ -1,11 +1,8 @@
 import os
 
-def main():
-    
-    return find_files()
-
 def find_files(suffix, path):
-    
+    assert(type(suffix) == str), "Suffix has to be a string"
+    assert(type(path) == str), "Path has to be a string"
     list_of_current_files = os.listdir(path)
     
     files_found = []
@@ -27,5 +24,15 @@ def find_files(suffix, path):
     return files_found
 
 
-
-print(find_files(".c", "./testdir"))
+print("-----------Test Case 1-------")
+print(find_files(".c", "./testdir"))  
+## test 1 returns  
+# ['./testdir/subdir3/subsubdir1/b.c', './testdir/t1.c', './testdir/subdir5/a.c', './testdir/subdir1/a.c']
+print("-----------Test Case 2-------")
+print(find_files(".h", "./testdir"))
+## test 2 returns
+# ['./testdir/subdir3/subsubdir1/b.h', './testdir/subdir5/a.h', './testdir/t1.h', './testdir/subdir1/a.h']
+print("-----------Test Case 3-------")
+print(find_files(".pow", "./testhhhdir"))
+## test 3 returns
+# FileNotFoundError: [Errno 2] No such file or directory: './testhhhdir'

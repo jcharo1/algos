@@ -61,16 +61,16 @@ def is_user_in_group(user, group):
 # Test Case 1
 print("-----------Test Case 1-------")
 print(is_user_in_group("sub_child_user", parent))  
-print("Test case 1, returns True")
+### returns True
 # Test Case 2
 print("-----------Test Case 2-------")
 print(is_user_in_group("child", child))
-print("Test case 2, returns True")
+### returns True
 # Test Case 3
 print("-----------Test Case 3-------")
 print(is_user_in_group("", child))
-print("Test case 3, returns False")
+## returns False 
 #Test Case 4
 print("-----------Test Case 4-------")
 print(is_user_in_group(None, child))
-print("Test case 3, returns False")
+## returns False

@@ -51,7 +51,6 @@ def frequency_dict_builder(string):
     return frequency_dict
 
 
-
 def tree_to_binary_code(root):
     
     codes_dict = {}
@@ -136,7 +135,7 @@ print(huffman_encoding("AAAAAAABBBCCCCCCCDDEEEEEE"))
 encoded_data, tree = huffman_encoding("AAAAAAABBBCCCCCCCDDEEEEEE")
 print(huffman_decoding(encoded_data, tree))
 
-if __name__ == "main":
+if __name__ == "__main__":
     code = {}
     a_great_sentence = "The bird is the word"
 
