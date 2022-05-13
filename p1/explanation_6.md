@@ -1,5 +1,5 @@
 # Code design 
-For this problem I decided to use recursion to check if user is in groups/subgroups
+For this problem I utizlied linked lists and lists. 
 # Time Efficiency
 Time Efficiency for this function is `O(n)`.  
 # Space Complexity
