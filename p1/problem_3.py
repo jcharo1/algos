@@ -70,8 +70,12 @@ def tree_to_binary_code(root):
     return codes_dict
 
 def huffman_encoding(data):
-    assert isinstance(data, str)
-    assert len(data)>0
+    if type(data) != str:
+        return "please ensure the data is a string"
+    # assert len(data)>0
+    if len(data) == 0:
+    
+        return "No data encoded"
     ##obatain frequency
     frequency_dict = frequency_dict_builder(data)
     #create heap
@@ -131,9 +135,9 @@ def huffman_decoding(encoded_data, tree):
         
     return decoded_data
 
-print(huffman_encoding("AAAAAAABBBCCCCCCCDDEEEEEE"))
-encoded_data, tree = huffman_encoding("AAAAAAABBBCCCCCCCDDEEEEEE")
-print(huffman_decoding(encoded_data, tree))
+# print(huffman_encoding("aaaaaaaaaaaaaaaaaa"))
+# encoded_data, tree = huffman_encoding("aaaaaaaaaaaaaaaaa")
+# print(huffman_decoding(encoded_data, tree))
 
 if __name__ == "__main__":
     code = {}
@@ -151,6 +155,24 @@ if __name__ == "__main__":
 
     print("The size of the decoded data is {}\n".format(sys.getsizeof(decoded_data)))
     print("The content of the encoded data is: {}\n".format(decoded_data))
+
+
+    print("===============Test Case for same letter")
+    print(huffman_encoding("aaaaaaaaaaaaaaaaaa")) # returns ('000000000000000000', Node(freq: 18, value: None))
+    encoded_data, tree = huffman_encoding("aaaaaaaaaaaaaaaaa")
+    print(huffman_decoding(encoded_data, tree))   #returns decoded str aaaaaaaaaaaaaaaaa
+
+
+
+    print("===============Test Case for  empty string")
+    print(huffman_encoding("")) # returns no data encoded
+
+
+    print("===============Test Case for  invalid input")
+    print(huffman_encoding(3)) # returns please ensure the data is a string
+
+
+
 
 
 

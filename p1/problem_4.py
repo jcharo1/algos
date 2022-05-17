@@ -29,6 +29,7 @@ sub_child.add_user(sub_child_user)
 
 child.add_group(sub_child)
 parent.add_group(child)
+
 def is_user_in_group(user, group):
     """
     Return True if user is in the group, False otherwise.
@@ -37,6 +38,8 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
+    if type(group) != Group:
+      return "please make sure group input is a group class"
     if user == None or "":
       return False
     if user in group.get_users():
@@ -65,7 +68,7 @@ print(is_user_in_group("sub_child_user", parent))
 # Test Case 2
 print("-----------Test Case 2-------")
 print(is_user_in_group("child", child))
-### returns True
+### returns false
 # Test Case 3
 print("-----------Test Case 3-------")
 print(is_user_in_group("", child))
@@ -74,3 +77,10 @@ print(is_user_in_group("", child))
 print("-----------Test Case 4-------")
 print(is_user_in_group(None, child))
 ## returns False
+print("============Test case 5============)
+
+print(is_user_in_group("", parent)) #returns false
+
+print("=================Test case 6================")
+
+print(is_user_in_group("child", 3)) #returns please make sure group input is a group class

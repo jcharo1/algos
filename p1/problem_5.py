@@ -51,7 +51,10 @@ class Block_chain:
         self.size = 0
     
     def append(self, data):
-        assert(type(data) == str), "Data has to be of type String"
+        if type(data) != str:
+            return print("Please ensure data is a string")
+        if len(data) == 0:
+            return print("please ensure your string is not empty")
         if self.head is None:
             self.head = Block(data, 0)
             self.tail = self.head
@@ -83,11 +86,12 @@ print("Test case 1, returns prints 4 as the size of the block chain")
 
 print("-----------Test Case 2-------")
 
-block_chain = Block_chain()
+block_chain2 = Block_chain()
 
-block_chain.append("J")
-block_chain.append(3)
-print("Test case 2, returns assert error if data is not of string type")
+block_chain2.append("J")
+block_chain2.append(35)
+
+print("Test case 2, return Please ensure data is a string")
 
 
 print("-----------Test Case 3-------")
@@ -96,11 +100,14 @@ block_chain = Block_chain()
 
 block_chain.append("J")
 block_chain.append(None)
-print("Test case 3, returns assert error if data is not of string type since None is not a string error will occur")
+print("Test case 3, returns  if data is not of string type since None is not a string error will occur")
 
 
 
+print("--------------------Test case 4------------------")
+block_chain1 = Block_chain()
+block_chain1.append("") 
+print("Test case 4, returns  please ensure your string is not empty")
 
 
-        
 

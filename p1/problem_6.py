@@ -43,6 +43,9 @@ class LinkedList:
 
 def union(llist_1, llist_2):
     # Your Solution Here
+    if llist_1.head == None and llist_2.head == None:
+        return -1
+    
     if llist_1.head is None:
         return llist_2
     if llist_2.head is None:
@@ -78,6 +81,9 @@ def get_small_and_large_list(list1,list2):
         return small , large
 def intersection(llist_1, llist_2):
     # Your Solution Here
+    if llist_1.head == None and llist_2.head == None:
+        return -1
+    
     assert llist_1.head or llist_2.head == None, "Please make sure both Linked List have nodes in them"
 
     node = llist_1.head
@@ -150,18 +156,54 @@ print (intersection(linked_list_3,linked_list_4))
 
 print("-----------Test Case 3-------")
 
+
+
 linked_list_1 = LinkedList()
-linked_list_3 = LinkedList()
-element_3 = []
-element_1 = [3,2,4,35,6,65,6,4,3,21]
+linked_list_2 = LinkedList()
+element_2 = []
+element_1 = []
 
 
 for i in element_1:
     linked_list_1.append(i)
 
-for i in element_3:
-    linked_list_3.append(i)
+for i in element_2:
+    linked_list_2.append(i)
+
+print(intersection(linked_list_2,linked_list_1)) # returns -1
+print(union(linked_list_2,linked_list_1)) #returns -1
+
+
+print("-----------Test Case 4-------")
+
+
+
+
+
+
+linked_list_1 = LinkedList()
+linked_list_2 = LinkedList()
+element_1 = []
+element_2 = [3,2,4,35,6,65,6,4,3,21]
+
+
+for i in element_1:
+    linked_list_1.append(i)
+
+for i in element_2:
+    linked_list_2.append(i)
+
+
+
+
+print (union(linked_list_1,linked_list_2)) # returns llist2
 
 print("if AssertionError is raised ----- Test is Passed")
-print(intersection(linked_list_3,linked_list_1))
+print(intersection(linked_list_1,linked_list_2)) #returns assertion error
+
+
+
+
+
+
 

@@ -3,6 +3,8 @@ import os
 def find_files(suffix, path):
     assert(type(suffix) == str), "Suffix has to be a string"
     assert(type(path) == str), "Path has to be a string"
+    if not os.path.isdir(path):
+        return 'Invalid Directory'
     list_of_current_files = os.listdir(path)
     
     files_found = []
@@ -34,5 +36,9 @@ print(find_files(".h", "./testdir"))
 # ['./testdir/subdir3/subsubdir1/b.h', './testdir/subdir5/a.h', './testdir/t1.h', './testdir/subdir1/a.h']
 print("-----------Test Case 3-------")
 print(find_files(".pow", "./testhhhdir"))
-## test 3 returns
-# FileNotFoundError: [Errno 2] No such file or directory: './testhhhdir'
+## test 3 returns invalid directory
+
+
+print("-----------Test Case 4-------")
+print(find_files(56, "./testhhhdir"))
+#returns AssertionError: Suffix has to be a string
